@@ -10,7 +10,7 @@
 
 #head {
     background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Titanic-Cobh-Harbour-1912.JPG/330px-Titanic-Cobh-Harbour-1912.JPG');
-    height: 300px;
+    height: 400px;
     background-size: 100% 100%;
     background-repeat: no-repeat;;
 }
@@ -20,7 +20,7 @@
 	background-repeat: repeat, no-repeat;
 	background-size: auto, cover;
 	color: #fff;
-	padding: 1em;
+	padding: 3em;
 	position: relative;
 	text-align: center
 }
@@ -32,4 +32,12 @@
 	z-index: 2;
 	padding: 25px 25px 25px 25px;
 	text-align: center;
+}
+
+nav {
+    text-align: center;
+}
+
+nav a {
+    text-decoration: none;
 }
