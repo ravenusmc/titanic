@@ -7,4 +7,9 @@ import numpy as np
 
 class Data():
 
-    #The following method 
+    #The following method
+    def amount_who_lived(self):
+        self.__data = pd.read_csv('train.csv')
+
+data = Data()
+data.amount_who_lived()
