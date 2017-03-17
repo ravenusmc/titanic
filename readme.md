@@ -6,7 +6,10 @@ understand it. At the same time, I will be using Pandas to look at some data
 about the Titanic. The data that I have came, as usual, from Kaggle. The URL is
 the following: https://www.kaggle.com/c/titanic/data. What is interesting is that
 this data set was made for machine learning to try and find out something about
-those passengers who either survived or died on the titanic.  
+those passengers who either survived or died on the titanic.
+
+I will also mention that this project will be using a lot of lorem ipsum since
+I want to focus on coding and not really looking up information about the titanic.  
 
 This project, at its most basic level, will be a few web pages where a user may
 select certain conditions about who lived or died and see what comes back.
