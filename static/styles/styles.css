@@ -38,6 +38,12 @@ nav {
     text-align: center;
 }
 
+button {
+  margin-top: 15px;
+  background-color: #4286f4;
+  border: solid 1px #4286f4;
+}
+
 nav a {
     text-decoration: none;
 }
