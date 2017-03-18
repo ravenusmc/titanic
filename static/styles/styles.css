@@ -55,10 +55,14 @@ nav a {
 }
 
 .main_area_one {
+    margin-left: 2%;
+    margin-right: 2%;
     flex: 5;
 }
 
 .main_area_two {
+    margin-left: 2%;
+    margin-right: 2%;
     flex: 5;
 }
 
