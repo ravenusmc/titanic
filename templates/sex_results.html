@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+
+<div id='wrapper'>
+
+    <header id='head'>
+        <section class='banner'>
+            <div class='inner'>
+                <h1>The Titanic Project</h1>
+                <hr>
+                <h3>Looking at Data about the Titanic</h3>
+            </div>
+        </section>
+    </header>
+
+    <nav>
+        <button><a href='/'>Home Page</a></button>&nbsp
+        <button><a href='/data'>Investigate data</a></button>
+    </nav>
+
+    <main>
+        <p>Here are your results: {{ sex_result }}</p>
+    </main>
+
+</div>
+
+
+
+{% endblock %}

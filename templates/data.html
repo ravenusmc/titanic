@@ -36,33 +36,25 @@
             </p>
         </div>
         <div class='area_two'>
-            <h3>Data to explore</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
-            accumsan vel ipsum sollicitudin tristique. Phasellus suscipit
-            at velit non pharetra. Aliquam iaculis suscipit dui in sagittis.
-            Class aptent taciti sociosqu ad litora torquent per conubia
-            nostra, per inceptos himenaeos. Duis finibus molestie tortor sit
-            amet euismod. In viverra, massa vitae molestie gravida, libero
-            enim ullamcorper enim, vel auctor est lectus in lectus. Donec id
-            quam vitae sapien maximus accumsan. Nunc rutrum libero a quam
-            auctor, nec viverra est tempus. Sed condimentum massa eget lorem
-            finibus, sit amet convallis nisl suscipit. Phasellus consequat
-            mi ac metus blandit faucibus.
-            </p>
+            <h3>Data to explore:</h3>
+            <p>Do you want to look at who survived by sex:</p>
+            <form method='POST' action='/sex_results'>
+                <p>Please select one or the other:
+                    <br>
+                    <input type='radio' name='sex' value='male'/>Male
+                    <input type='radio' name='sex' value='female'/>Female
+                    <input type='submit'>
+                </p>
+            </form>
         </div>
         <div class='area_three'>
             <h5>Basic facts about the Titanic</h5>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
-            accumsan vel ipsum sollicitudin tristique. Phasellus suscipit
-            at velit non pharetra. Aliquam iaculis suscipit dui in sagittis.
-            Class aptent taciti sociosqu ad litora torquent per conubia
-            nostra, per inceptos himenaeos. Duis finibus molestie tortor sit
-            amet euismod. In viverra, massa vitae molestie gravida, libero
-            enim ullamcorper enim, vel auctor est lectus in lectus. Donec id
-            quam vitae sapien maximus accumsan. Nunc rutrum libero a quam
-            auctor, nec viverra est tempus. Sed condimentum massa eget lorem
-            finibus, sit amet convallis nisl suscipit. Phasellus consequat
-            mi ac metus blandit faucibus.
+            <p>The total amount of people on the titanic: <span>{{ total }}</span>.
+            I do have to report that number comes from my data file. It appears
+            that in reality there were <span>1,317</span> people on board.
+            I believe that the problem lies in the fact that my data was only
+            training data for machine learning.</p>
+            <p>
             </p>
         </div>
     </main>

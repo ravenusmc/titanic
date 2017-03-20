@@ -1,7 +1,12 @@
+#This is the main file of the program that will actually run everything.
 
+#import libraries which will be used in the project.
 import pandas as pd
 import numpy as np
 from flask import Flask, render_template, request
+
+#importing files that I have created for this project.
+from data import *
 
 #Setting up flask
 app = Flask(__name__)
@@ -14,7 +19,17 @@ def index():
 #This code will allow the user to go to a page to look at data.
 @app.route('/data')
 def data():
-    return render_template('data.html', title='Data Page')
+    data = Data()
+    total_passengers = data.amount_who_lived()
+    return render_template('data.html', title='Data Page', total = total_passengers)
+
+@app.route('/sex_results', methods=['POST'])
+def sex_results():
+    sex = str(request.form['sex'])
+    # data = Data()
+    # lived_by_sex = data.sex_survived(sex)
+    return render_template('sex_results.html', title="sex_results", sex_result = sex)
+
 
 #This line will actually run the app.
 app.run(debug=True)

@@ -3,7 +3,7 @@ body {
 }
 
 #wrapper {
-  width: 85%;
+  width: 90%;
   margin-right: auto;
   margin-left: auto;
   background-color: #ffffff;
@@ -94,6 +94,12 @@ nav a {
 
 .area_three {
     flex: 2;
+    padding-left: 2%;
+    padding-right: 1%;
+}
+
+span {
+    font-weight: bold;
 }
 
 /* CSS media queries */
