@@ -102,6 +102,18 @@ span {
     font-weight: bold;
 }
 
+footer {
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+/* CSS Sex_results Page */
+
+.sex_results_heading {
+    text-align: center;
+    text-transform: uppercase;
+}
+
 /* CSS media queries */
 
 @media only all and (max-width: 768px){

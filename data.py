@@ -8,11 +8,20 @@ import numpy as np
 class Data():
 
     #The following method will show the user the total amount of people on the
-    #Titanic. 
+    #Titanic.
     def amount_who_lived(self):
         self.__data = pd.read_csv('train.csv')
         total_passengers = len(self.__data)
         return total_passengers
 
+    #This method will show the user who survived the sinking of the titanic by
+    #sex.
+    def who_lived_by_sex(self, sex):
+        self.__data = pd.read_csv('train.csv')
+        total_passengers = len(self.__data)
+        sex_type = len(self.__data[(self.__data.Sex == sex) & (self.__data.Survived == 1)])
+        return total_passengers, sex_type
+
+
 # data = Data()
-# data.amount_who_lived()
+# data.who_lived_by_sex('male')

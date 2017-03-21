@@ -26,9 +26,9 @@ def data():
 @app.route('/sex_results', methods=['POST'])
 def sex_results():
     sex = str(request.form['sex'])
-    # data = Data()
-    # lived_by_sex = data.sex_survived(sex)
-    return render_template('sex_results.html', title="sex_results", sex_result = sex)
+    data = Data()
+    total_passengers, lived_by_sex = data.who_lived_by_sex(sex)
+    return render_template('sex_results.html', title="sex_results", total = total_passengers, sex_type = lived_by_sex, sex = sex)
 
 
 #This line will actually run the app.
