@@ -72,6 +72,16 @@ nav a {
     flex: 5;
 }
 
+footer {
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 25px;
+}
+
+.form_one {
+    border-bottom: 3px solid #071326;
+}
+
 /* CSS for data page */
 
 .data_container {
@@ -102,16 +112,26 @@ span {
     font-weight: bold;
 }
 
-footer {
-    text-align: center;
-    padding-bottom: 10px;
-}
+
+
+
 
 /* CSS Sex_results Page */
 
 .sex_results_heading {
     text-align: center;
     text-transform: uppercase;
+}
+
+.results_container {
+    width: 300px;
+    margin: auto auto;
+    border: 2px inset #071326;
+    background-color: rgba(7, 19, 38, 0.5);
+}
+
+.results_container p {
+    text-align: center;
 }
 
 /* CSS media queries */

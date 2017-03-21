@@ -37,12 +37,22 @@
         </div>
         <div class='area_two'>
             <h3>Data to explore:</h3>
-            <p>Do you want to look at who survived by sex:</p>
-            <form method='POST' action='/sex_results'>
-                <p>Please select one or the other:
+            <h4>By Sex:</h4>
+            <form class='form_one' method='POST' action='/sex_results'>
+                <p>Please select only one choice:
                     <br>
-                    <input type='radio' name='sex' value='male'/>Male
-                    <input type='radio' name='sex' value='female'/>Female
+                    <input type='radio' name='sex' value='male'/>Male<br>
+                    <input type='radio' name='sex' value='female'/>Female<br>
+                    <input type='submit'>
+                </p>
+            </form>
+            <form class='form_two' method='POST' action='/class_results'>
+                <h4>By Class:</h4>
+                <p>Please select only one choice:
+                    <br>
+                    <input type='radio' name='class' value='1'/>1st Class<br>
+                    <input type='radio' name='class' value='2'/>2nd Class<br>
+                    <input type='radio' name='class' value='3'/>3rd Class<br>
                     <input type='submit'>
                 </p>
             </form>
