@@ -32,10 +32,11 @@ def sex_results():
 
 @app.route('/class_results', methods=['POST'])
 def class_results():
-    class_type = int(request.form['class'])
+    class_selected = int(request.form['class'])
     data = Data()
-    total_passengers, lived_by_class = data.who_lived_by_class(class_type)
-    return render_template('class_results.html', title="class_results", total = total_passengers, class_type = lived_by_class)
+    class_converted = data.convert_class(class_selected)
+    total_passengers, lived_by_class = data.who_lived_by_class(class_selected)
+    return render_template('class_results.html', title="class_results", total = total_passengers, class_type = lived_by_class, class_converted = class_converted)
 
 #This line will actually run the app.
 app.run(debug=True)

@@ -112,10 +112,6 @@ span {
     font-weight: bold;
 }
 
-
-
-
-
 /* CSS Sex_results Page */
 
 .sex_results_heading {
@@ -133,6 +129,14 @@ span {
 .results_container p {
     text-align: center;
 }
+
+/* CSS class_results Page */
+
+.class_results_heading {
+    text-align: center;
+    text-transform: uppercase;
+}
+
 
 /* CSS media queries */
 

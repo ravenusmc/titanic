@@ -30,6 +30,16 @@ class Data():
         class_type = len(self.__data[(self.__data.Pclass == class_type) & (self.__data.Survived == 1)])
         return total_passengers, class_type
 
+    #This method will simply convert the class selected, which is an integer, to a string
+    #of either first, second or third. 
+    def convert_class(self, class_selected):
+        if class_selected == 1:
+            return 'first'
+        elif class_selected == 2:
+            return 'second'
+        elif class_selected == 3:
+            return 'third'
+
 
 
 # data = Data()
