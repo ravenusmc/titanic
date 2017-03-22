@@ -22,6 +22,15 @@ class Data():
         sex_type = len(self.__data[(self.__data.Sex == sex) & (self.__data.Survived == 1)])
         return total_passengers, sex_type
 
+    #This method will show the user who survived the sinking of the titanic by
+    #class.
+    def who_lived_by_class(self, class_type):
+        self.__data = pd.read_csv('train.csv')
+        total_passengers = len(self.__data)
+        class_type = len(self.__data[(self.__data.Pclass == class_type) & (self.__data.Survived == 1)])
+        return total_passengers, class_type
+
+
 
 # data = Data()
 # data.who_lived_by_sex('male')

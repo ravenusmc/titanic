@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<div id='wrapper'>
+
+    <header id='head'>
+        <section class='banner'>
+            <div class='inner'>
+                <h1>Class Results</h1>
+                <hr>
+                <h3>Looking at Data about the Titanic</h3>
+            </div>
+        </section>
+    </header>
+
+    <nav>
+        <button><a href='/'>Home Page</a></button>&nbsp
+        <button><a href='/data'>Investigate data</a></button>
+    </nav>
+
+    <main>
+        <h1>Results of who lived by class:</h1>
+        <div>
+            <p>{{ total }} and {{ class_type }}</p>
+        </div>
+    </main>
+
+    <footer>
+        Copyright &copy; 2017 Double Sun Productions<br>
+        <a href="mailto:mcuddy77@gmail.com">mcuddy77@gmail.com</a>
+    </footer>
+
+
+</div>
+
+
+{% endblock %}
