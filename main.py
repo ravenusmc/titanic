@@ -23,20 +23,22 @@ def data():
     total_passengers = data.amount_who_lived()
     return render_template('data.html', title='Data Page', total = total_passengers)
 
+#This code will allow the user to see how many people survived by sex.
 @app.route('/sex_results', methods=['POST'])
 def sex_results():
     sex = str(request.form['sex'])
     data = Data()
-    total_passengers, lived_by_sex = data.who_lived_by_sex(sex)
-    return render_template('sex_results.html', title="sex_results", total = total_passengers, sex_type = lived_by_sex, sex = sex)
+    survived_passengers, total_passengers, lived_by_sex = data.who_lived_by_sex(sex)
+    return render_template('sex_results.html', title="sex_results", total = total_passengers, sex_type = lived_by_sex, sex = sex, total_lived = survived_passengers)
 
+#This code will display the results of how many people survived in each class.
 @app.route('/class_results', methods=['POST'])
 def class_results():
     class_selected = int(request.form['class'])
     data = Data()
     class_converted = data.convert_class(class_selected)
-    total_passengers, lived_by_class = data.who_lived_by_class(class_selected)
-    return render_template('class_results.html', title="class_results", total = total_passengers, class_type = lived_by_class, class_converted = class_converted)
+    survived_passengers, total_passengers, lived_by_class = data.who_lived_by_class(class_selected)
+    return render_template('class_results.html', title="class_results", total = total_passengers, class_type = lived_by_class, class_converted = class_converted, total_lived = survived_passengers)
 
 #This line will actually run the app.
 app.run(debug=True)
