@@ -108,6 +108,10 @@ footer {
     padding-right: 1%;
 }
 
+.form_three {
+    border-top: 3px solid black;
+}
+
 span {
     font-weight: bold;
 }
@@ -135,6 +139,13 @@ span {
 .class_results_heading {
     text-align: center;
     text-transform: uppercase;
+}
+
+.data_button {
+    background-color: #0859db;
+    border-radius: 12px;
+    padding: 5px;
+    border-color: #0859db;
 }
 
 

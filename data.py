@@ -42,6 +42,12 @@ class Data():
         elif class_selected == 3:
             return 'third'
 
+    #This method will show the user the amount of people who survived by age.
+    def age_lived(self, age_entered):
+        self.__data = pd.read_csv('train.csv')
+        total_passengers = len(self.__data)
+        age_survived = len(self.__data[self.__data.Age >= age_entered])
+        return total_passengers, age_survived
 
 
 # data = Data()

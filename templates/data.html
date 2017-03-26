@@ -43,7 +43,7 @@
                     <br>
                     <input type='radio' name='sex' value='male'/>Male<br>
                     <input type='radio' name='sex' value='female'/>Female<br>
-                    <input type='submit'>
+                    <input class='data_button' type='submit'>
                 </p>
             </form>
             <form class='form_two' method='POST' action='/class_results'>
@@ -53,7 +53,17 @@
                     <input type='radio' name='class' value='1'/>1st Class<br>
                     <input type='radio' name='class' value='2'/>2nd Class<br>
                     <input type='radio' name='class' value='3'/>3rd Class<br>
-                    <input type='submit'>
+                    <input class='data_button' type='submit'>
+                </p>
+            </form>
+            <form class='form_three' method='POST' action='/age_results'>
+                <h4>By Age:</h4>
+                <p>Please enter in an age:
+                    The data returned will bring back everything at that age and
+                    greater.
+                    <br>
+                    <input name='number' type='NUMBER'>
+                    <input class='data_button' type='submit'>
                 </p>
             </form>
         </div>

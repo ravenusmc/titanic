@@ -40,5 +40,13 @@ def class_results():
     survived_passengers, total_passengers, lived_by_class = data.who_lived_by_class(class_selected)
     return render_template('class_results.html', title="class_results", total = total_passengers, class_type = lived_by_class, class_converted = class_converted, total_lived = survived_passengers)
 
+#This code will display the results of who survived the titanic by age.
+@app.route('/age_results', methods=['POST'])
+def age_results():
+    age_entered = int(request.form['number'])
+    data = Data()
+    total_passengers, age_survived = data.age_lived(age_entered)
+    return render_template('age_results.html', title="Age_results", age = age_survived, total = total_passengers)
+
 #This line will actually run the app.
 app.run(debug=True)
