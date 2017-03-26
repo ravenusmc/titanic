@@ -46,7 +46,7 @@ def age_results():
     age_entered = int(request.form['number'])
     data = Data()
     total_passengers, age_survived = data.age_lived(age_entered)
-    return render_template('age_results.html', title="Age_results", age = age_survived, total = total_passengers)
+    return render_template('age_results.html', title="Age_results", age = age_survived, total = total_passengers, age_entered = age_entered)
 
 #This line will actually run the app.
 app.run(debug=True)
