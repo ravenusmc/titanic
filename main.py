@@ -48,5 +48,11 @@ def age_results():
     total_passengers, age_survived = data.age_lived(age_entered)
     return render_template('age_results.html', title="Age_results", age = age_survived, total = total_passengers, age_entered = age_entered)
 
+@app.route('/sex_and_class_results', methods=['POST'])
+def sex_and_class_results():
+    sex = str(request.form['sex'])
+    class_selected = int(request.form['class'])
+    return render_template('sex_class_results.html', title="Sex and Class Results", sex = sex, class_selected = class_selected )
+
 #This line will actually run the app.
 app.run(debug=True)
