@@ -20,7 +20,11 @@
     </nav>
 
     <main class='data_container'>
-        {{ sex }} {{class_selected}}
+        <div class='results_container'>
+            <h1>Here are the results by who survived by sex and class:</h1>
+            <p>Out of {{ total }} passengers, {{ survived_sex_class }} survived who
+            were {{ sex }} and from the {{ class_converted }} class.</p>
+        </div>
     </main>
 
     <footer>

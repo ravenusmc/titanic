@@ -52,7 +52,10 @@ def age_results():
 def sex_and_class_results():
     sex = str(request.form['sex'])
     class_selected = int(request.form['class'])
-    return render_template('sex_class_results.html', title="Sex and Class Results", sex = sex, class_selected = class_selected )
+    data = Data()
+    class_converted = data.convert_class(class_selected)
+    total, survived = data.age_lived(sex, class_selected)
+    return render_template('sex_class_results.html', title="Sex and Class Results", total = total, survived_sex_class = survived, sex = sex, class_converted = class_converted)
 
 #This line will actually run the app.
 app.run(debug=True)

@@ -54,6 +54,10 @@ nav a {
     text-decoration: none;
 }
 
+main {
+    margin-top: 10px;
+}
+
 .main_container {
     display: flex;
     flex-direction: row;
