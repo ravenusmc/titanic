@@ -7,7 +7,7 @@
     <header id='head'>
         <section class='banner'>
             <div class='inner'>
-                <h1>Data Page</h1>
+                <h1>The Titanic Project</h1>
                 <hr>
                 <h3>Looking at Data about the Titanic</h3>
             </div>
@@ -19,21 +19,24 @@
         <button><a href='/data'>Investigate data</a></button>
     </nav>
 
-    <main class='data_container'>
-        <div class='results_container'>
-            <h1>Here are the results by who survived by sex and class:</h1>
-            <p>Out of {{ total }} passengers, {{ survived_sex_class }} survived who
-            were {{ sex }} and from the {{ class_converted }} class.</p>
-        </div>
+    <main class='main_container'>
+        <h1>Login Page</h1>
+        <form method='POST' action='/test'>
+            <p>First Name:<input type='text' name='first_name' /></p>
+            <p>Last Name:<input type='text' name='last_name' /></p>
+            <p>user_name:<input type='text' name='user_name' /></p>
+            <p>password: <input type='text' name='password' /></p>
+            <input class='data_button' type='submit'>
+        </form>
     </main>
+
+
 
     <footer>
         Copyright &copy; 2017 Double Sun Productions<br>
         <a href="mailto:mcuddy77@gmail.com">mcuddy77@gmail.com</a>
     </footer>
 
-
 </div>
-
 
 {% endblock %}
