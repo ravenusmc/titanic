@@ -3,7 +3,7 @@
 #import libraries which will be used in the project.
 import pandas as pd
 import numpy as np
-from flask import Flask, render_template, request
+from flask import Flask, session, redirect, url_for, escape, render_template, request
 from pymongo import MongoClient
 import bcrypt
 
@@ -14,23 +14,16 @@ from mongo import *
 #Setting up flask
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def login():
+    if request.method == 'POST':
+        session['username'] = request.form['username']
+        return redirect(url_for('index'))
     return render_template('login.html', title='Login Page')
 
-#This code will send the user to the index/home page
-@app.route('/test', methods=['POST'])
-def login_t():
-    my_server = Database()
-    coll = my_server.database_setup()
-    first_name = request.form['first_name']
-    last_name = request.form['last_name']
-    user_name = request.form['user_name']
-    password = request.form['password']
-    password = b"password"
-    hashed = bcrypt.hashpw(password, bcrypt.gensalt(14))
-    coll.insert_one({"first_name": first_name, "last_name": last_name, "user_name": user_name, "password": hashed})
-    return render_template('test_login.html', title='Home Page')
+@app.route('/index')
+def index():
+    return render_template('index.html', title='Home Page')
 
 #This code will allow the user to go to a page to look at data.
 @app.route('/data')
@@ -72,6 +65,10 @@ def sex_and_class_results():
     class_converted = data.convert_class(class_selected)
     total, survived = data.age_lived(sex, class_selected)
     return render_template('sex_class_results.html', title="Sex and Class Results", total = total, survived_sex_class = survived, sex = sex, class_converted = class_converted)
+
+
+# set the secret key.  keep this really secret:
+app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
 
 #This line will actually run the app.
 app.run(debug=True)
