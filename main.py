@@ -14,16 +14,31 @@ from mongo import *
 #Setting up flask
 app = Flask(__name__)
 
+#This function will be the login page for the app
 @app.route('/', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
+        my_server = Database()
         session['username'] = request.form['username']
+        session['firstname'] = request.form['firstname']
         return redirect(url_for('index'))
     return render_template('login.html', title='Login Page')
 
+#     coll = my_server.database_setup()
+#     first_name = request.form['first_name']
+#     last_name = request.form['last_name']
+#     user_name = request.form['user_name']
+#     password = request.form['password']
+#     coll.insert_one({"first_name": first_name, "last_name": last_name, "user_name": user_name, "password": password})
+#     return render_template('test_login.html', title='Home Page')
+
+#This is the index page for the app.
 @app.route('/index')
 def index():
-    return render_template('index.html', title='Home Page')
+    if 'username' in session:
+        return render_template('index.html', title='Home Page')
+        # return 'Logged in as %s' % escape(session['username', 'firstname'])
+    return 'You are not logged in'
 
 #This code will allow the user to go to a page to look at data.
 @app.route('/data')
@@ -66,9 +81,40 @@ def sex_and_class_results():
     total, survived = data.age_lived(sex, class_selected)
     return render_template('sex_class_results.html', title="Sex and Class Results", total = total, survived_sex_class = survived, sex = sex, class_converted = class_converted)
 
-
-# set the secret key.  keep this really secret:
+# set the secret key.
 app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
 
 #This line will actually run the app.
 app.run(debug=True)
+
+
+
+###### OLD CODE
+
+#This code will send the user to the index/home page
+# @app.route('/test', methods=['POST'])
+# def login_t():
+#     my_server = Database()
+#     coll = my_server.database_setup()
+#     first_name = request.form['first_name']
+#     last_name = request.form['last_name']
+#     user_name = request.form['user_name']
+#     password = request.form['password']
+#     # password = b"password"
+#     # hashed = bcrypt.hashpw(password, bcrypt.gensalt(14))
+#     coll.insert_one({"first_name": first_name, "last_name": last_name, "user_name": user_name, "password": password})
+#     return render_template('test_login.html', title='Home Page')
+
+# @app.route('/', methods=['GET', 'POST'])
+# def login():
+#     if request.method == 'POST':
+#         session['username'] = request.form['username']
+#         return redirect(url_for('index'))
+#     return render_template('login.html', title='Login Page')
+#
+# @app.route('/index')
+# def index():
+#     if 'username' in session:
+#         return 'Logged in as %s' % escape(session['username'])
+#     return 'You are not logged in'
+    # return render_template('index.html', title='Home Page')
