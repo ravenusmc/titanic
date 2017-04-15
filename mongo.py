@@ -5,25 +5,26 @@ from pymongo import MongoClient
 
 class Database():
 
-    def database_setup(self):
+    def __init__(self):
         self.client = MongoClient() #Setting up the connection to mongo DB
-        db = self.client.titanic #Creating the titanic DB
-        coll = db.users #Creating a users collection within the titanic DB
-        # db.users.insert_one({
-        #   "first_name": "Test",
-        #   "last_name": "Me",
-        #   "user": "TestMe",
-        #   "password": "pass"
-        # )}
-        return coll
+        self.db = self.client.titanic #Creating the titanic DB
+        self.db.passengers = self.db.passengers #Creating a passengers collection within the titanic DB
 
-# client = MongoClient()
-# db = client.titanic
-# db.users
-# db.users.insert_one({
-#     "first_name": "Test",
-#     "last_name": "Me",
-#     "user": "TestMe",
-#     "password": "pass"
+    #This method will add a new user to the database.
+    def add(self, username, password):
+        self.db.passengers.insert_one({
+            "username": username,
+            "password": password
+        })
 
-# })
+    #This method will see if the username and password are in the database.
+    def check(self, username, password):
+        user_real = self.db.passengers.find_one({
+            "username": username,
+            "password": password
+        });
+        if str(user_real) == 'None':
+            flag = False
+        else:
+            flag = True
+        return flag

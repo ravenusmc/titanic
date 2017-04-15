@@ -86,6 +86,13 @@ footer {
     border-bottom: 3px solid #071326;
 }
 
+/* CSS for Login page */
+
+.login_box {
+    text-align: center;
+}
+
+
 /* CSS for data page */
 
 .data_container {
