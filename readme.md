@@ -14,6 +14,10 @@ I want to focus on coding and not really looking up information about the titani
 This project, at its most basic level, will be a few web pages where a user may
 select certain conditions about who lived or died and see what comes back.
 
+Finally, I have created a basic user registration system using a Mongo DB for
+backend. I have decided, in this project, not to use Bcrypt to hide the passwords.
+That, I believe, I will save for my next project.
+
 
 # Getting started
 ### Installing
@@ -25,6 +29,7 @@ Flask, Python 3.4, Pandas and Numpy must be installed on your computer
 2. Python 3.4
 3. Pandas
 4. Numpy
+5. Mongo DB
 
 ### Operation
 

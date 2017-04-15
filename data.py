@@ -5,6 +5,7 @@
 import pandas as pd
 import numpy as np
 
+#This class is what will deal with all of the data about the titanic.
 class Data():
 
     #The following method will show the user the total amount of people on the
@@ -46,16 +47,12 @@ class Data():
     def age_lived(self, age_entered):
         self.__data = pd.read_csv('train.csv')
         total_passengers = len(self.__data)
-        age_survived = len(self.__data[(self.__data.Age >= age_entered) & (self.__data.Survived == 1)])
+        age_survived = len(self.__data[(self.__data.Age >= age_entered)])
         return total_passengers, age_survived
 
     #This method will show the user the amount of people who survived by sex and class
-    def age_lived(self, sex_entered, class_entered):
+    def survived_sex_class(self, sex_entered, class_entered):
         self.__data = pd.read_csv('train.csv')
         total_passengers = len(self.__data)
         class_sex_survived = len(self.__data[(self.__data.Pclass == class_entered) & (self.__data.Sex == sex_entered)])
         return total_passengers, class_sex_survived
-
-
-# data = Data()
-# data.who_lived_by_sex('male')

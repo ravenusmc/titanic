@@ -3,6 +3,7 @@
 #Importing files which will be used in the program
 from pymongo import MongoClient
 
+#This class will handle all of the methods that deal with the Mongo Database. 
 class Database():
 
     def __init__(self):

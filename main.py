@@ -17,14 +17,22 @@ app = Flask(__name__)
 #This function will be the login page for the app
 @app.route('/', methods=['GET', 'POST'])
 def login():
+    #This is the object that will deal with Mongo DB.
     identity = Database()
+    #If the user submits a post request this conditional statement is activated.
     if request.method == 'POST':
+        #Getting the information from the form that the user submitted.
         username = request.form['username']
         password = request.form['password']
+        #This method will check to ensure that the username and password are in
+        #the databse.
         flag = identity.check(username, password)
         if flag == True:
+            #If the user is in the database, the user gets sent to the index page.
             return redirect(url_for('index'))
         else:
+            #If the user is not in the database then they will be sent to the
+            #sign up page.
             return redirect(url_for('sign_up'))
     return render_template('login.html', title='Login Page')
 
@@ -33,16 +41,24 @@ def login():
 def index():
     return render_template('index.html', title='Home Page')
 
-
+#This function is for the sign up page where users will go to sign up to use the
+#program.
 @app.route('/sign_up', methods=['GET', 'POST'])
 def sign_up():
+    #This is the object that will deal with Mongo DB.
     identity = Database()
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
+        #Here the identity object uses the add method to add the user to the mongo
+        #databse. Once that is done, the user will be redirected to the index page.
         identity.add(username, password)
         return redirect(url_for('index'))
     return render_template('sign_up.html', title='Sign Up Page')
+
+@app.route('/logout')
+def logout():
+    return render_template('sign_out.html', title='Sign Out Page')
 
 #This code will allow the user to go to a page to look at data.
 @app.route('/data')
@@ -82,44 +98,8 @@ def sex_and_class_results():
     class_selected = int(request.form['class'])
     data = Data()
     class_converted = data.convert_class(class_selected)
-    total, survived = data.age_lived(sex, class_selected)
+    total, survived = data.survived_sex_class(sex, class_selected)
     return render_template('sex_class_results.html', title="Sex and Class Results", total = total, survived_sex_class = survived, sex = sex, class_converted = class_converted)
-
-# set the secret key.
-# app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
 
 #This line will actually run the app.
 app.run(debug=True)
-
-
-
-
-
-
-
-
-
-
-###### OLD CODE SAVED FOR REFERENCE
-
-
-#OLD INDEX CODE
-# if 'username' in session:
-#     return render_template('index.html', title='Home Page')
-#     # return 'Logged in as %s' % escape(session['username']), % escape(session['username'])
-# return 'You are not logged in'
-
-
-# @app.route('/', methods=['GET', 'POST'])
-# def login():
-#     if request.method == 'POST':
-#         session['username'] = request.form['username']
-#         return redirect(url_for('index'))
-#     return render_template('login.html', title='Login Page')
-#
-# @app.route('/index')
-# def index():
-#     if 'username' in session:
-#         return 'Logged in as %s' % escape(session['username'])
-#     return 'You are not logged in'
-    # return render_template('index.html', title='Home Page')
